@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>(Título del documento)</title>
+    <script src="./js/Jugador.js"></script>
+    <script>
+    var jugadores =  new Array();
+    function agregar(){
+        console.log("Agregando");
+        var nombre = document.getElementById("nombre").value;
+        var dorsal = document.getElementById("dorsal").value;
+        var isPortero = document.getElementById("portero").checked;
+        var isDefensa = document.getElementById("defensa").checked;
+        var isCentrocampista = document.getElementById("centrocampista").checked;
+        var isDelantero = document.getElementById("delantero").checked;
+        var equipo = document.getElementById("equipo").value;
+        
+        var newJugador = new Jugador(nombre,
+        dorsal, isPortero, isDefensa, isCentrocampista,
+        isDelantero,equipo);
+
+        jugadores.push(newJugador);
+    }
+    function mostrar(){
+        jugadores.forEach(j => {
+            j.mostrar();
+        });
+    }
+    </script>
+</head>
+<body>
+    <H1>Liga Fabulosa</H1>
+    <input type="text" id="nombre" placeholder="Nombre"><br>
+    <input type="number" id="dorsal" placeholder="Dorsal"><br>
+    <label for="portero">Portero</label><input type="radio" id="portero" name="posicion">
+    <label for="defensa">Defensa</label><input type="radio" id="defensa" name="posicion">
+    <label for="centrocampista">Centrocampista</label><input type="radio" id="centrocampista" name="posicion">
+    <label for="delantero">Delantero</label><input type="radio" id="delantero" name="posicion"><br>
+    <select id="equipo">
+        <option value="Alaves">Alavés</option>
+        <option value="Athletic Club">Athletic Club</option>
+        <option value="Atletico de Madrid">Atlético de Madrid</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+    </select><br>
+    <input type="button" value="Agregar" onclick="agregar()">
+    <input type="button" value="Mostrar" onclick="mostrar()">
+</body>
+</html>
